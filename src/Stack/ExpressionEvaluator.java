@@ -66,7 +66,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
                 if (((expression.charAt(i) == '-') || (expression.charAt(i) == '+')) && ((expression.charAt(i - 1) == '*') || (expression.charAt(i - 1) == '/') || (expression.charAt(i - 1) == '-') || (expression.charAt(i - 1) == '+'))) {
                     int counter = 0;
-                    while (!Character.isDigit(expression.charAt(i))) {
+                    while ((!Character.isDigit(expression.charAt(i)))&&(!Character.isAlphabetic(expression.charAt(i)))) {
                         if ((expression.charAt(i) != '/') && (expression.charAt(i) != '*')) {
                             stk.push(expression.charAt(i));
                             counter++;
@@ -87,7 +87,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
                 } else {
                     if (((expression.charAt(i) == '-') || (i == 0))) {
                         int counter = 0;
-                        while (!Character.isDigit(expression.charAt(i))) {
+                        while ((!Character.isDigit(expression.charAt(i)))&&(!Character.isAlphabetic(expression.charAt(i)))) {
                             if ((expression.charAt(i) != '/') && (expression.charAt(i) != '*')) {
                                 stk.push(expression.charAt(i));
                                 counter++;
@@ -165,3 +165,4 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
     }
 }
+
