@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //First of all if the expression is wrong this code will print statement telling you the expression is not valid.
-        //i don't throw exception not to stop the program....bcz if i throw exception the program will stop and you have to run it again.
-        // i throw exception you want in a j unit tests.
+        /**First of all if the expression is wrong this code will print statement telling you the expression is not valid.
+        i don't throw exception not to stop the program....bcz if i throw exception the program will stop and you have to run it again.
+         i throw exception you want in a j unit tests.
+        */
         Scanner read=new Scanner(System.in);
         String choose="1";
         while (true){
