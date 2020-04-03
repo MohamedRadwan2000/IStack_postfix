@@ -64,7 +64,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             }
             else if(expression.charAt(i)=='-'){if(i!=0) {
 
-                if (((expression.charAt(i) == '-') || (expression.charAt(i) == '+')) && ((expression.charAt(i - 1) == '*') || (expression.charAt(i - 1) == '/') || (expression.charAt(i - 1) == '-') || (expression.charAt(i - 1) == '+'))) {
+                if (((expression.charAt(i) == '-') || (expression.charAt(i) == '+')) && ((expression.charAt(i - 1) == '*') || (expression.charAt(i - 1) == '/') || (expression.charAt(i - 1) == '-') || (expression.charAt(i - 1) == '+')||(expression.charAt(i - 1) == '('))) {
                     int counter = 0;
                     while ((!Character.isDigit(expression.charAt(i)))&&(!Character.isAlphabetic(expression.charAt(i)))) {
                         if ((expression.charAt(i) != '/') && (expression.charAt(i) != '*')) {
@@ -160,9 +160,10 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         if(operator=='+'){return op1+op2;}
         if(operator=='-'){return op1-op2;}
         if(operator=='*'){return op1*op2;}
-        if(operator=='/'){return op1/op2;}
+        if(operator=='/'){
+            if(op2==0){throw new RuntimeException("unable to devide by Zero");}
+            return op1/op2;}
         else {throw new WrongMethodTypeException();
         }
     }
 }
-
