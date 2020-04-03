@@ -58,6 +58,13 @@ class ExpressionEvaluatorTest {
         assertThrows(WrongMethodTypeException.class,()->{l.infixToPostfix(x);});
 
     }
+    @Test
+    void test_7(){
+        ExpressionEvaluator l=new ExpressionEvaluator();
+        String x="2/0";
+        assertThrows(RuntimeException.class,()->{l.evaluate(l.infixToPostfix(x));});
+
+    }
 
 
 
